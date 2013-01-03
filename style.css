@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'RaphaelIcons';
+  src: url('fonts/raphaelicons-webfont.eot');
+  src: local('☺'), url('fonts/raphaelicons-webfont.woff') format('woff'), url('fonts/raphaelicons-webfont.ttf') format('truetype'), url('fonts/raphaelicons-webfont.svgwebfontKOf9F4sx') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   padding: 0;
   margin: 0;
@@ -13,7 +20,7 @@ body {
   font-family: Georgia, serif;
   line-height: 1.5em;
   color: #000;
-  background-color: transparent;
+  background-color: #999;
 }
 a {
   color: #000;
@@ -30,11 +37,28 @@ strong {
 em {
   font-style: italic;
 }
+
+/* Icon font stuff from http://css-tricks.com/examples/IconFont/ */
+[data-icon]:before {
+  font-family: 'RaphaelIcons';
+  content: attr(data-icon);
+  font-size: 2em;
+  font-weight: normal;
+  speak: none;
+}
+.icon-alone {
+  display: inline-block;
+}
+.screen-reader-text {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
 #main-container {
   display: table;
   width: 100%;
   height: 100%;
-  margin: 0 auto;
 }
 #main {
   display: table-cell;
@@ -48,6 +72,10 @@ ul#links {
   font-weight: bold;
   line-height: 1.2em;
   letter-spacing: -0.05em;
+}
+ul#links li {
+  display: inline-block;
+  margin: 0 0.25em;
 }
 #background-container {
   position: fixed;
@@ -67,6 +95,7 @@ ul#links {
   min-width: 50%;
   min-height: 50%;
 }
+
 @media (min-width: 750px) {
   #main {
   }
