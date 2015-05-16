@@ -169,6 +169,9 @@ em {
 .item a {
   text-decoration: none;
 }
+footer {
+  margin-bottom: 1rem;
+}
 .strp-window {
   font: inherit;
 }
