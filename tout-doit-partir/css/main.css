@@ -128,6 +128,18 @@ h1 {
 p {
   margin-bottom: 1rem;
 }
+em {
+  font-style: normal;
+  text-decoration: underline;
+}
+#about a {
+  font-weight: normal;
+  color: #fff;
+  background-color: rgba(0,0,0,0.9);
+  text-decoration: none;
+  margin: 0 -2px;
+  padding: 2px 2px 1px;
+}
 #contents {
   margin: 1rem;
 }
