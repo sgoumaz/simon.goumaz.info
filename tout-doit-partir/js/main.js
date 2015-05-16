@@ -1,10 +1,9 @@
 $(document).ready(function () {
-  var $packContainer = $('#items');
-  $packContainer.packery({
-    itemSelector: '.item',
-    gutter: 0
-  });
+  var $packContainer = $('#items');  
   $packContainer.imagesLoaded(function () {
-    $packContainer.packery();
+    $packContainer.packery({
+      itemSelector: '.item',
+      gutter: 0
+    });
   });
 });
