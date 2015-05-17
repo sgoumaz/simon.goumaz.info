@@ -165,8 +165,9 @@ em {
   height: auto;
 }
 .item .name {
-  display: block;
-  padding: 0 0.5rem 0.25rem;
+  display: inline-block;
+  position: relative;
+  margin: 0 0.5rem 0.25rem;
 }
 .item a {
   text-decoration: none;
@@ -194,8 +195,13 @@ em {
   transform: rotate(-2deg);
   pointer-events: none;
 }
-.item.taken .name {
-  color: rgba(0,0,0,0.5);
+.item.taken .name:after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(50% - 1px);
+  border-bottom: 2px solid;
+  content: "";
 }
 footer {
   clear: both;
