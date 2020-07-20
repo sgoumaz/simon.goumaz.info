@@ -207,7 +207,7 @@ em {
   position: absolute;
   bottom: 50%;
   left: calc(50% - 5000px);
-  content: '—————— To charity ——————';
+  content: '—————— Given away ——————';
   white-space: pre;
   width: 10000px;
   height: 3rem;
