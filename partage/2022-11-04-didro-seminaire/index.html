@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/beige.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<style>
+:root {
+	--r-main-font-size: 30px;
+}
+body {
+	background: white !important;
+}
+</style>
+
+### Shoshana Zuboff
+# The Age of Surveillance Capitalism
+### The Fight for a Human Future at the New Frontier of Power
+
+_Séminaire du 4 novembre 2022 · Didactique romande / Informatique_<br>
+Raphaël Ansermot & Simon Goumaz
+
+<aside class="notes"><p><mark>RA</mark></p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Présentation du livre
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## L'autrice: Shoshana Zuboff
+
+- Née en 1951, américaine
+- Professeur à Harvard, psychologue sociale, philosophe et femme de lettres
+- Travaille notamment sur les thèmes de la **révolution numérique**, l'**évolution du capitalisme**, l'**émergence de l'individualité psychologique** et les **conditions du développement humain**
+
+‘**The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power**’ est publié en 2019, 2 ans après son livre précédent ‘**Master Or Slave? The Fight for the Soul of Our Information Civilization**’
+
+<aside class="notes"><p><mark>RA</mark></p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Thèse et arguments
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Le capitalisme de surveillance
+
+_“Surveillance capitalism unilaterally claims human experience as free raw material for translation into behavioral data.”_
+
+- Une forme prédatrice de capitalisme dont le siège est le numérique, utilisant les données récoltées du comportement humain pour prédire, modifier et activement contrôler ce que font les individus
+- Au service des intérêts économiques et politiques d'une petite élite, contre l'intérêt public et la plupart des intérêts privés
+
+<aside class="notes"><p><mark>RA</mark>
+L&#39;autrice dresse un portrait critique de ce qu&#39;elle appelle le <strong>capitalisme de surveillance</strong>.
+C&#39;est un capitalisme faisant du profit en traquant continuellement tous nos faits et gestes.</p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Au delà de connaître nos comportements actuels: contrôler nos comportements futurs
+
+<img src="https://i.imgur.com/eM7Rz8M.png" alt="" style="object-fit: scale-down">
+
+<!-- .element: style="width: 90%" --> 
+
+<aside class="notes"><p><mark>RA</mark></p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## 1. Le cycle de dépossession
+
+Comment Google, entre autres, a construit son pouvoir quasi-monopolistique:
+1. **Incursion**: intrusion dans un espace «vierge» – p.ex. Gmail, ou le sillonnage sans permission des voitures Google
+2. **Habituation**: développer les produits aussi vite que possible en les ancrant dans les pratiques quotidiennes du public, en ignorant les critiques et menaces légales qui n'arrivent pas à suivre
+3. **Adaptation**: face à la résistance du public ou de la loi, faire des ajustements de façade aux produits implémentés pour les rendre plus acceptables, jusqu'à l'étape suivante…
+4. **Redirection**: restructurer stratégiquement les discours et les produits, pour les enraciner de façon permanente dans la société
+5. Lancer un nouveau cycle aussi vite que possible pour rester compétitif
+
+<aside class="notes"><p><mark>SG</mark></p>
+<ol>
+<li>Gmail (pour obtenir toutes sortes de données personnelles sur ses utilisateurs), ou le sillonnage sans permission des Google Cars (qui ne se sont pas limitées à prendre des photos) (Google Street View est l&#39;exemple développé dans le livre)</div></li>
+</ol>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## 2. Le passage du monde virtuel au monde réel
+
+_“A reorientation from **knowledge** to **power**”_
+
+- Nécessaire car le capitalisme de surveillance profite principalement de la vente des **produits de prédiction**
+- Quoi de mieux pour prédire avec précision que de pouvoir **contrôler les comportements via les nouvelles technologies** (cf. scandale Cambridge Analytica)
+- Le **pouvoir instrumentaire**: connaître et former le comportement humain au service des intérêts de certains
+- Pas besoin d'armes ou d'armées: une architecture informatique toujours plus omniprésente d'appareils, objets et espaces connectés et «intelligents»
+
+<aside class="notes"><p><mark>RA</mark></p>
+<ul>
+<li>Voir les <strong>technologies «intelligentes» comme un moyen de modification comportementale employé par les capitalistes de surveillance</strong></li>
+<li>L&#39;ironie: on en vient à désirer acheter et utiliser les moyens par lesquels les corporations nous surveillent et nous contrôlent</div></li>
+</ul>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## 3. Une situation inextricable?
+
+- En considérant que:
+	- Internet est devenu essentiel pour participer à la société
+	- Internet est saturé par le commerce
+	- Le commerce est désormais subordonné au capitalisme de surveillance
+- **Notre dépendance est au cœur du projet de surveillance commerciale**
+- Conflit entre notre besoin ressenti de vivre «efficacement» et l'instinct de résister à cette surveillance ⇒ **_Psychic numbing_**
+	- Insensibilisation de la réalité d'être tracé, analysé, et modifié
+	- Rationalisation par un cynisme résigné, ou des excuses comme «je n'ai rien à cacher»
+
+<aside class="notes"><p><mark>SG</mark>
+RÉSIGNATION ET INDIFFÉRENCE ?</p>
+<ul>
+<li>Je n&#39;ai rien à cacher ? &lt;-&gt; J&#39;accepte les conditions d&#39;utilisation</li>
+<li>Utilisateurs mal informés ? &lt;-&gt; Développement du capitalisme de surveillance</li>
+<li>La technologie fautive ? &lt;-&gt; Aux yeux du capitalisme de surveillance</div></li>
+</ul>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## 4. Une évolution sans précédent
+
+La raison principale derrière le triomphe du capitalisme de surveillance: **un phénomène sans précédent est forcément impossible à reconnaître**.
+- Amérindiens ↔︎ conquistadors
+- Utilisateurs ↔︎ capitalisme de surveillance
+- Situation sans précédent = connaissances existantes inexploitables
+- Sans percevoir ce qui se passe, on est impuissant
+
+_“This book is [...] animated by the conviction that fresh observation, analysis, and new naming are required if we are to grasp the unprecedented as a necessary prelude to effective contest.”_
+
+<aside class="notes"><p><mark>RA</mark></p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## 5. Ne pas se tromper de cible
+
+- Attention à la confusion entre le capitalisme de surveillance et les technologies qu'il emploie
+- **Le capitalisme de surveillance n'est pas la technologie**: c'est une logique qui infuse la technologie et l'anime pour ses fins
+- La **fausse idée de l'inévitabilité**: le capitalisme de surveillance veut nous faire croire que ses pratiques sont l'expression inévitable de la technologie
+- **La technologie ne peut pas être une chose en soi, isolée de l'économie et de la société**: elle est forcément un moyen au service d'une fin… donc **l'inévitabilité technologique n'existe pas**
+
+<aside class="notes"><p><mark>SG</mark></p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## 6. Un danger existentiel pour la démocratie et la souveraineté individuelle
+
+- «Le capitalisme de surveillance impose la vision totalisante d'une vie dans la ruche, avec [...] son clergé du _data_ en charge de la supervision et du contrôle»
+- Il est **structurellement indépendant du peuple**, sans contre-pouvoir naturel et au bénéfice d'une très petite population
+- **Son pouvoir est en train de dépasser toutes les normes connues** et s'étend à des domaines jusque là intacts, aux niveaux humains, sociaux et politiques
+- C'est un _“**coup from above**”_: pas un renversement de l'État, mais un renversement de la souveraineté des gens et une force sociale fondamentalement antidémocratique
+
+_“It is a form of tyranny that feeds on people but is not of the people.”_
+
+<aside class="notes"><p><mark>RA</mark></p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Quelle issue?
+
+- Plus de trois siècles de **civilisation industrielle** ont eu pour but de **dominer la nature** – aujourd'hui «**la civilisation de l'information** répète la même arrogance dangereuse, mais le but est cette fois de **dominer la nature humaine**»
+- **Nous sommes seuls à pouvoir inverser la tendance**: d'abord en reconnaissant ce qui se passe, puis en mobilisant de nouvelles formes d'action collaborative
+- Ce qui est en jeu est notre propre souveraineté d'individus et de société, de décider qui sait? qui décide? qui décide de qui décide? etc. 
+- **_“If the digital future is to be our home, then it is we who must make it so.”_**
+
+<aside class="notes"><p><mark>SG</mark>
+Points principalement tirés du documentaire, interview de Zuboff:</p>
+<ul>
+<li>Il faut rendre ces marchés hors-la-loi, sous prétexte qu&#39;ils ont des conséquences destructirces inévitables</li>
+<li>On pourrait taxter les entreprises au volume de données qu&#39;elles contiennent</li>
+<li>Ceux qui critiquent sont ceux qui amènent les améliorations</li>
+<li>Il faut une volonté commune</li>
+<li>Cela va prendre du temps car beaucoup de gens ne voient pas où est le problème</li>
+<li>Il faut donc informer et faire en sorte qu&#39;il existe un nombre suffisant de personnes libres de ne pas être influencées par les réseaux sociaux, ainsi le débat pourra se faire</div></li>
+</ul>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Contexte et sources (1/2)
+
+L'autrice a écrit ce livre avec une double posture:
+- En tant que **sociologue** se basant sur la théorie, l'histoire, la philosophie et la recherche qualitative
+- En tant qu'**essayiste** puisant dans sa propre expérience, pour mieux toucher le public et contrecarrer le _psychic numbing_ qui fait partie du problème dénoncé
+
+<aside class="notes"><p>sauter (avec prochaine diapo) si pas de temps</p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Contexte et sources (2/2)
+
+- Le livre se base notamment sur les travaux d'auteurs·trices qui ont tenté en leur temps de cerner des développements «sans précédent»: **Durkheim**, **Marx**, **Weber** sur le capitalisme industriel, mais aussi **Hannah Arendt**, **Theodor Adorno**, **Karl Polanyi**, **Jean-Paul Sartre** et **Stanley Milgram** sur le totalitarisme
+- Une recherche focalisée sur les grands acteurs du capitalisme de surveillance, dans le contexte plus large de technologie et _data science_ du _zeitgeist_ de la Silicon Valley
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Commentaires
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Limites du livre
+
+- Concept de capitalisme de surveillance pas complètement clair
+- Son adoption pour expliquer les évolutions actuelles pourrait obscurcir d'autres forces en jeu
+- Un pouvoir instrumentaire presque tout-puissant: exagéré?
+- Plus fondamentalement: le contexte plus large du capitalisme «tout court» est largement ignoré, alors que la version «surveillance» pourrait simplement en être l'évolution naturelle (colonisation de nouveaux domaines pour continuer à faire tourner la machine)
+
+<aside class="notes"><p><mark>SG</mark></p>
+<ul>
+<li>Ou pour aller encore plus loin dans l&#39;origine du problème: l&#39;évolution décrite pourrait être une sorte d&#39;aboutissement ultime de la tendance humaine à la peur et à la volonté de contrôle qu&#39;elle engendre</div></li>
+</ul>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Notre appréciation
+
+- Malgré ses limites, un plaidoyer puissant pour une prise de conscience nécessaire
+- Remet la technologie à sa juste place: au service d'une vie digne et désirable
+- Pour nous, nourrit le questionnement sur le rôle de l'informatique et le contexte de son développement (p.ex. simple outil de quantification et d'aliénation au service du capital?)
+- <mark>Prise de conscience par qui et comment? Notre rôle d'éducateurs</mark>
+
+<aside class="notes"><p><mark>SG</mark></p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## «Derrière nos écrans de fumée» (1/2)
+
+- Documentaire réalisé par Jeff Orlowski et produit par Netflix en 2020
+- Docu-fiction:
+	- Entretiens, notamment avec anciens de Google, Facebook, Twitter etc. sur les dérives des technologies qu'ils ont contribué à développer
+	- Scènes de fiction suivant la vie d'une famille et notamment ses deux ados, illustrant le mode opératoire et l'impact de ces technologies sur leur vie
+- [Trailer (2 mins 30)](https://youtu.be/uaaC57tcci0)
+
+<aside class="notes"><p><mark>RA</mark></p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## «Derrière nos écrans de fumée» (2/2)
+
+- Format docu-fiction: intéressant, qui fait sens pour toucher le (jeune) public – fait miroir au choix de Zuboff de lier analyse sociologique et essai dans son livre
+- Forte résonance à sa sortie, à notre sens méritée: il faut parler de ces problèmes, sur tous les canaux
+- Mais se concentre principalement sur les technologies elles-mêmes, au détriment du plus large contexte socio-économique
+	- Contribue ainsi à légitimer la perspective, démontée par Zuboff, que le problème est technologique (fait écho à un mal répandu dans la Silicon Valley: le «solutionnisme technologique»)
+	- Restreint notre champ d'action possible à p.ex. la privation
+	- Limite aussi la discussion sur ce que serait un usage désirable du numérique
+
+<aside class="notes"><p><mark>SG</mark></p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Application dans l'enseignement
+
+- Comme fil rouge tout au long de l'année, pour situer et mettre en perspective les notions abordées
+- Introduction/accroche: petites vidéos «Dopamine» d'ARTE : https://www.arte.tv/fr/videos/RC-017841/dopamine/
+- Visionner le **documentaire «Derrière nos écrans de fumée»**
+	- Version "classroom" de 40 minutes disponible sur www.thesocialdilemma.com) – en anglais seulement?
+	- Utiliser ses limites comme base de discussion
+- Amener le débat en classe
+	- Guide disponible sur www.thesocialdilemma.com
+	- Plus de ressources sur www.humanetech.com
+- Mettre en place une expérience sociale de «privation» comme celle proposée dans le documentaire
+
+<aside class="notes"><p><mark>RA</mark></p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Activité :<br>débat mouvant
+
+❓Est-ce que l'évolution technologique est inévitable❓
+
+<aside class="notes"><p><mark>RA</mark></p>
+<p>❓<strong>Should we change how social media is regulated</strong>❓</p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Ressources++
+
+Pour aller plus loin sur le sujet:
+
+- [Evgeny Morozov, _Capitalism's New Clothes_ (Baffler, 2019)](https://thebaffler.com/latest/capitalisms-new-clothes-morozov)
+- [Christophe Masutti, _Bifurquer avant l’impact: l’impasse du capitalisme de surveillance_ (Framablog, 2022)](https://framablog.org/2022/08/29/bifurquer-avant-limpact-limpasse-du-capitalisme-de-surveillance/)
+- <mark>…à compléter</mark>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<mark>A partir de là, c'est que des notes</mark>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Des données à profusion
+
+- Depuis les années 2000, de nombreux dispositifs de tous les jours collectent des informations concernant leurs utilisateurs.
+- Ces données représentent des connaissances étendues de la part des fournisseurs de prestations sur leurs utilisateurs.
+- La protection des donnnées privées est aujourd'hui bafouée au profit d'une commerce de celles-ci.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Quelles données ?
+
+- Le comportement de l'utilisateur génère pléthore de données : ce que j'aime, ce que je cherche, d'où je viens, sur quoi je clique, ...
+- Certaines de ces données sont utilisées par le fournisseur pour améliorer l'expérience utilisateur
+- Les données restantes sont vendues pour être intégrées à un vaste processus de fabrication de produits de prédiction
+- L'analyse des données des utilisateurs, toute expérience confondue, permet de définir les marchers de demain, de dessiner les comportements futurs
+- Ainsi, le but est de mener l'utilisateur à se comporter comme le fournisseur le souhaite.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## « If it’s free, then you are the product »
+
+Extrait de: Shoshana Zuboff. « The Age of Surveillance Capitalism. » Apple Books.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- Lors d'une transaction le vendeur et l'acheteur sont mutuellement gagnants : le vendeur reçoit de l'argent en échange d'un produit fabriqué, l'acheteur jouit de l'utilisation du produit et cela s'arrête-là.
+- Aujourd'hui, l'utilisateur jouit souvent gratuitement d'un produit, mais son expérience d'utilisateur est analysée par le vendeur qui reçoit de l'argent en vendant le résultat de ces analyses à des acquéreurs inconnus de l'utilisateur.
+- Les véritables utilisateurs au sens du capitalisme de surveillance sont les entreprises qui s'immiscent dans ce marché des données
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Résignation ?
+
+- "Je n'ai rien à cacher" <-> J'accepte les conditions d'utilisation
+- Il devient quasi impossible de nous extirper de cette situation
+- C'est le coeur du capitalisme de surveillance
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## La faute à la technologie ?
+
+- Certains pensent que le capitalisme de surveillance est inévitable avec les technologies actuelles
+- Pour Zuboff, ce fatalisme n'a pas lieu d'être, le capitalisme de surveillance aimerait nous faire croire que ses pratiques sont inévitablement liées aux technologies qu'elles emploient
+- Mais, le capitalisme de surveillance n'est pas la technologie : un moteur de recherche ne retient aucune information sur l'utilisateur, mais le capitalisme de surveillance oui.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Docu "Derrière nos écrans de fumée"
+
+- Les réseaux sociaux ont du positif : réunir des familles, trouver des donneurs d'organes, ...
+- Ils ont aussi leur revers de médaille : vivre dans une bulle, dépendance, fausses informations, culte de la personnalité...
+
+# Citations
+
+- les outils que nous utilisons aujourd'hui sont en train d'eroder les fondememts de notre civilisation
+- il est un peu simpliste de dire que "si c'est gratuit, c'est que nous sommes le produit", en réalité le vrai produit c'est ce changement impreceptible et graduel dans notre comportement et notre perception du monde, rien d'autre ne "les" intéresse car c'est la seule manière de se faire de l'argent
+- Ils vendent de la certitude, ils l'obtiennent grâce à des prédictions, qui est construite sur l'analyse des données
+- C'est un business model totalement nouveau, ils font du profit sur la base de données humaines (confidentielles de leurs utilisateurs), ce qui fait de ces entreprises les plus riches jamais connues de l'histoire de l'humanité
+- La tromperie et la manipulation sont au coeur même des moyens de communication en ligne
+- Nous n'avons pas été bâtis pour être bombardés de validations sociales toutes les 5 minutes (par des likes p.ex). On construit notre vie autour ce faux sens de percéption, on est récompensés dans le court terme par des "j'aime". Mais c'est quoi la suite? Un grand vide, qui nous dit "j'en veux encore".
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Les technologies persuasives
+
+- Ce sont des technologies poussées à l'extrême ayant pour unique but de changer le comportement des personnes pour qu'elles fassent ce qu'on veut, par exemple défiler à l'infini sur leur écran
+- Le renforcement positif intermittent : le but est de vous manipuler psychologiquement le plus efficacement possible, avec comme récompense une dose de dopamine
+- Ils sont en mesure d'avoir une incidence sur les actions de la vie réelle sans qu'aucun utlisateur ne soit véritablement conscient de ce qui s'est passé
+- On est passé d'un environnement où les inventions sont de simples outils qui attendent d'être utilisés, à un environnement où elles favorisent les des addictions et la manipulation. Les réseaux sociaux ne sont pas ds outils qui attendent d'être utilisés, ils ont leurs propres objetcifs et utilisent pour les atteindre des techniques de psychologie contre les utilisateurs
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Polarisation de la société
+
+- Aucun utilisateur ne possède le même fil d'actualités car celui-ci est proposé selon les citères élaborés par l'algorithme d'intelligence artificielle qui analyse nos comportements, et qui maximise les profits potentiels
+- On se demande donc pourquoi et comment des personnes peuvent avoir une opinion autre que la nôtre alors que tout ce que l'on voit sur les réseaux va dans notre sens? Nous sommes une nation où le gens se sont isolés et n'écoutent que les informations qui leur donnent raison.
+- On assiste à une polarisation de la société
+- C'est un business model qui marche sur la désinformation, plus les messages sont non réglementés, plus les profits sont élevés.
+- Voulons-nous vendre ces modèles au plus offrant, conscient des risques sur nos démocraties?
+- Lavéritable menace c'est que la technologie est capable de mettre à jour le côté le plus obscure de la société humaine
+</div></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+			]
+		},
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":true,"progress":true,"slideNumber":false,"transition":"slide","transitionSpeed":"default"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
